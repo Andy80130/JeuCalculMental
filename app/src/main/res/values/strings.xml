@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Application</string>
     <string name="bouton_calculatrice">Calculatrice</string>
+    <string name="bouton_calculMental" translatable="true">Calcul mental</string>
     <string name="nombre_1" translatable="false" >1</string>
     <string name="nombre_0" translatable="false" >0</string>
     <string name="nombre_2" translatable="false" >2</string>
@@ -11,10 +12,16 @@
     <string name="nombre_7" translatable="false" >7</string>
     <string name="nombre_8" translatable="false" >8</string>
     <string name="nombre_9" translatable="false" >9</string>
-    <string name="add" translatable="false">+</string>
+    <string name="plus" translatable="false">+</string>
     <string name="moins" translatable="false">-</string>
     <string name="multiplier" translatable="false">x</string>
     <string name="diviser" translatable="false">/</string>
     <string name="bouton_reset">RAZ</string>
     <string name="bouton_calculer">Calculer</string>
+    <string name="textView_question" translatable="true">Calcul à résoudre :</string>
+    <string name="textView_reponse" translatable="true">Votre réponse :</string>
+    <string name="textView_resultat" translatable="true">Résultat :</string>
+    <string name="bouton_a_propos" translatable="true">À propos</string>
+    <string name="bouton_effacer" translatable="true">Effacer\n</string>
+    <string name="bouton_valider" translatable="true">Valider</string>
 </resources>

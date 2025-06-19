@@ -18,7 +18,7 @@
             android:id="@+id/bouton_calculMental"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calcul mental" />
+            android:text="@string/bouton_calculMental" />
 
         <Button
             android:id="@+id/bouton_calculatrice"
@@ -27,9 +27,9 @@
             android:text="@string/bouton_calculatrice" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bouton_a_propos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/bouton_a_propos" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

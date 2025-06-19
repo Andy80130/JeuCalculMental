@@ -17,21 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Combien fait :" />
+            android:text="@string/textView_question" />
 
         <TextView
             android:id="@+id/textView_reponse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Votre réponse est :" />
+            android:text="@string/textView_reponse" />
 
         <TextView
             android:id="@+id/textView_resultat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Et c'est une :" />
+            android:text="@string/textView_resultat" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,22 +41,26 @@
             android:orientation="vertical">
 
             <LinearLayout
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <Button
-                    android:id="@+id/button_effacer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Effacer" />
 
                 <Button
-                    android:id="@+id/button_valider"
+                    android:id="@+id/bouton_effacer"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Valider" />
+                    android:text="@string/bouton_effacer" />
+
+                <Button
+                    android:id="@+id/bouton_valider"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/bouton_valider" />
             </LinearLayout>
 
             <LinearLayout

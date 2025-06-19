@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bouton_calculatrice">Calculation</string>
+    <string name="bouton_calculMental">Mental calculation</string>
+    <string name="bouton_a_propos">About</string>
+    <string name="bouton_reset">RESET</string>
+    <string name="bouton_calculer">Calculate</string>
+    <string name="textView_question">Calculation to solve :</string>
+    <string name="textView_reponse">Your answer :</string>
+    <string name="textView_resultat">Result :</string>
+    <string name="bouton_effacer">Erase</string>
+    <string name="bouton_valider">Submit</string>
+</resources>
