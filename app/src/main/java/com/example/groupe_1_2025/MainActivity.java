@@ -15,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     private Button boutonCalculatrice;
     private Button boutonCalculMental;
+    private Button boutonAPropos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
         boutonCalculMental = findViewById(R.id.bouton_calculMental);
         boutonCalculMental.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, CalculMentalActivity.class);
+            startActivity(intent);
+        });
+
+        boutonAPropos = findViewById(R.id.bouton_a_propos);
+        boutonAPropos.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, AProposActivity.class);
             startActivity(intent);
         });
     }

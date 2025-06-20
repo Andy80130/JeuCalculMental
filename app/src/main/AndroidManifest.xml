@@ -19,6 +19,9 @@
             android:name=".CalculatriceActivity"
             android:exported="false" />
         <activity
+            android:name=".AProposActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
