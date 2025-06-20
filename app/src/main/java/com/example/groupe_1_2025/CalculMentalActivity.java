@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import java.util.Random;
+import android.os.Handler;
 
 public class CalculMentalActivity extends AppCompatActivity {
     private Button bouton0;
@@ -21,17 +23,21 @@ public class CalculMentalActivity extends AppCompatActivity {
     private Button bouton7;
     private Button bouton8;
     private Button bouton9;
-    private TextView textViewReponse;
-    private Integer premierElement=0;
-    private Integer deuxiemeElement=0;
     private Button button_valider;
     private Button button_effacer;
-    private TypeOperation typeOperation;
+    private TextView textViewQuestion;
+    private TextView textViewReponse;
+    private TextView textViewResultat;
+    private int nombre1;
+    private int nombre2;
+    private TypeOperation operation;
+    private int bonneReponse;
+    private StringBuilder reponseUtilisateur = new StringBuilder();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_calculatrice);
+        setContentView(R.layout.activity_calculmental);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -48,6 +54,10 @@ public class CalculMentalActivity extends AppCompatActivity {
         bouton7 = findViewById(R.id.button_7);
         bouton8 = findViewById(R.id.button_8);
         bouton9=findViewById(R.id.button_9);
+        button_valider=findViewById(R.id.bouton_valider);
+        button_effacer=findViewById(R.id.bouton_effacer);
+        textViewQuestion = findViewById(R.id.textView_question);
+        textViewResultat = findViewById(R.id.textView_resultat);
         textViewReponse = findViewById(R.id.textView_reponse);
         bouton0.setOnClickListener(v-> ajouterChiffre(0));
         bouton1.setOnClickListener(v-> ajouterChiffre(1));
@@ -59,28 +69,76 @@ public class CalculMentalActivity extends AppCompatActivity {
         bouton7.setOnClickListener(v-> ajouterChiffre(7));
         bouton8.setOnClickListener(v-> ajouterChiffre(8));
         bouton9.setOnClickListener(v-> ajouterChiffre(9));
-        button_valider.setOnClickListener(v -> validerReponse(textViewReponse));
-        button_effacer.setOnClickListener(v -> effacerChiffre(textViewReponse));
+        button_valider.setOnClickListener(v-> validerReponse(textViewReponse));
+        button_effacer.setOnClickListener(v-> effacerChiffre(textViewReponse));
+        genererNouvelleQuestion();
     }
 
-    private void ajouterChiffre(Integer chiffre){
-        if(typeOperation==null){
-            premierElement= premierElement*10+chiffre;
-        }else{
-            deuxiemeElement = deuxiemeElement*10+chiffre;
-        }
-        textViewReponse.setText(textViewReponse.getText()+chiffre.toString());
+    private void ajouterChiffre(Integer chiffre) {
+        reponseUtilisateur.append(chiffre);
+        textViewReponse.setText(reponseUtilisateur.toString());
     }
-    private void effacerChiffre(TextView textViewReponse){
-        if(textViewReponse.getText()!=null){
 
+    private void effacerChiffre(TextView textViewReponse) {
+        if (reponseUtilisateur.length() > 0) {
+            reponseUtilisateur.deleteCharAt(reponseUtilisateur.length() - 1);
+            textViewReponse.setText(reponseUtilisateur.toString());
         }
-        textViewReponse.setText(textViewReponse.getText());
     }
-    private void validerReponse(TextView textViewReponse){
-        if(textViewReponse.getText()!=null){
 
+    private void validerReponse(TextView textViewReponse) {
+        if (reponseUtilisateur.length() == 0) {
+            textViewResultat.setText("Veuillez entrer une réponse.");
+            return;
         }
-        textViewReponse.setText(textViewReponse.getText());
+
+        int reponse = Integer.parseInt(reponseUtilisateur.toString());
+        if (reponse == bonneReponse) {
+            textViewResultat.setText("✅ Bonne réponse !");
+        } else {
+            textViewResultat.setText("❌ Mauvaise Réponse. La bonne réponse était " + bonneReponse);
+        }
+
+        // Générer une nouvelle question après 2 secondes
+        new Handler().postDelayed(this::genererNouvelleQuestion, 2000);
+    }
+
+    private void genererNouvelleQuestion() {
+        Random random = new Random();
+        TypeOperation[] operations = TypeOperation.values();
+        operation = operations[random.nextInt(operations.length)];
+
+        switch (operation) {
+            case ADD:
+                nombre1 = random.nextInt(50) + 1;
+                nombre2 = random.nextInt(50) + 1;
+                bonneReponse = nombre1 + nombre2;
+                break;
+
+            case SUBSTRACT:
+                // Pour éviter les résultats négatifs, on s'assure que nombre1 >= nombre2
+                nombre1 = random.nextInt(100) + 1;
+                nombre2 = random.nextInt(nombre1 + 1);  // borné à nombre1 inclus
+                bonneReponse = nombre1 - nombre2;
+                break;
+
+            case MULTIPLY:
+                nombre1 = random.nextInt(10) + 1;
+                nombre2 = random.nextInt(10) + 1;
+                bonneReponse = nombre1 * nombre2;
+                break;
+
+            case DIVIDE:
+                // Pour une division entière, on construit un bon résultat puis on calcule l'opération inverse
+                nombre2 = random.nextInt(9) + 1; // évite la division par 0
+                bonneReponse = random.nextInt(10); // résultat souhaité
+                nombre1 = nombre2 * bonneReponse;
+                break;
+        }
+
+        textViewQuestion.setText(nombre1 + " " + operation.getSymbole() + " " + nombre2 + " = ?");
+        textViewReponse.setText("");
+        textViewResultat.setText("");
+        reponseUtilisateur.setLength(0);
     }
 }
