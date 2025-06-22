@@ -116,7 +116,7 @@ public class CalculMentalActivity extends AppCompatActivity {
                 disableButtons();
                 textViewResultat.setText("❌ Vous avez perdu ! La bonne réponse était " + bonneReponse);
 
-                new Handler().postDelayed(this::enterName, 2000);
+                new Handler().postDelayed(this::saveScore, 2000);
                 return;
             }
         }
@@ -128,9 +128,10 @@ public class CalculMentalActivity extends AppCompatActivity {
         }
     }
 
-    private void enterName() {
+    private void saveScore() {
         Intent intent = new Intent(CalculMentalActivity.this, EnterNameActivity.class);
-        startActivityForResult(intent, 1);
+        intent.putExtra("score", score);
+        startActivity(intent);
     }
 
     private void disableButtons() {

@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">Application</string>
     <string name="bouton_calculatrice">Calculatrice</string>
     <string name="bouton_calculMental" translatable="true">Calcul mental</string>
+    <string name="bouton_tableauDesScores" translatable="true">Tableau des scores</string>
     <string name="nombre_1" translatable="false" >1</string>
     <string name="nombre_0" translatable="false" >0</string>
     <string name="nombre_2" translatable="false" >2</string>
@@ -27,6 +28,7 @@
     <string name="bouton_effacer" translatable="true">Effacer\n</string>
     <string name="bouton_valider" translatable="true">Valider</string>
     <string name="textView_enter_name" translatable="true">Entrez votre pseudo</string>
-    <string name="editText_pseudo" translatable="true">Votre pseudo</string>
+    <string name="editTextPseudo" translatable="true">Votre pseudo</string>
     <string name="bouton_valider_nom" translatable="true">Valider</string>
+    <string name="scoreboardTextView" translatable="true">"Tableau des scores"</string>
 </resources>

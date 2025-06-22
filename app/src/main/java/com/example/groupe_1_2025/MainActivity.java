@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button boutonCalculatrice;
     private Button boutonCalculMental;
     private Button boutonAPropos;
+    private Button boutonTableauDesScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
         boutonAPropos = findViewById(R.id.bouton_a_propos);
         boutonAPropos.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, AProposActivity.class);
+            startActivity(intent);
+        });
+
+        boutonTableauDesScores = findViewById(R.id.bouton_tableauDesScores);
+        boutonTableauDesScores.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, TableauDesScoresActivity.class);
             startActivity(intent);
         });
     }

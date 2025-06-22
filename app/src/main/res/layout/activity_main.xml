@@ -21,6 +21,12 @@
             android:text="@string/bouton_calculMental" />
 
         <Button
+            android:id="@+id/bouton_tableauDesScores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouton_tableauDesScores" />
+
+        <Button
             android:id="@+id/bouton_calculatrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

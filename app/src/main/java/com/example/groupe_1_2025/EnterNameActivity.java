@@ -2,7 +2,7 @@ package com.example.groupe_1_2025;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,28 +10,25 @@ import androidx.appcompat.app.AppCompatActivity;
 public class EnterNameActivity extends AppCompatActivity {
 
     private EditText editTextPseudo;
-    private Button buttonSubmit;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_name);
 
-        editTextPseudo = findViewById(R.id.editText_pseudo);
-        buttonSubmit = findViewById(R.id.bouton_valider_nom);
-
-        buttonSubmit.setOnClickListener(v -> submitName());
+        editTextPseudo = findViewById(R.id.editTextPseudo);
+        score = getIntent().getIntExtra("score", 0);
     }
 
-    private void submitName() {
-        String pseudo = editTextPseudo.getText().toString().trim();
+    public void onValiderPseudo(View view) {
+        String pseudo = editTextPseudo.getText().toString();
 
         if (!pseudo.isEmpty()) {
-            // Passer le pseudo à l'activité suivante ou à un autre écran
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("pseudo", pseudo);
-            setResult(RESULT_OK, resultIntent);
-            finish();
+            Intent intent = new Intent(EnterNameActivity.this, TableauDesScoresActivity.class);
+            intent.putExtra("pseudo", pseudo);
+            intent.putExtra("score", score);
+            startActivity(intent);
         } else {
             editTextPseudo.setError("Veuillez entrer un pseudo");
         }

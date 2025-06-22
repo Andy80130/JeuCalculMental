@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="bouton_calculatrice">Calculation</string>
+    <string name="bouton_calculatrice">Calculator</string>
     <string name="bouton_calculMental">Mental calculation</string>
+    <string name="bouton_tableauDesScores">Scoreboard</string>
     <string name="bouton_a_propos">About</string>
     <string name="bouton_reset">RESET</string>
     <string name="bouton_calculer">Calculate</string>
@@ -12,6 +13,7 @@
     <string name="bouton_effacer">Erase</string>
     <string name="bouton_valider">Submit</string>
     <string name="textView_enter_name">Enter your nickname</string>
-    <string name="editText_pseudo">Your nickname</string>
+    <string name="editTextPseudo">Your nickname</string>
     <string name="bouton_valider_nom">Submit</string>
+    <string name="scoreboardTextView">Scoreboard</string>
 </resources>
