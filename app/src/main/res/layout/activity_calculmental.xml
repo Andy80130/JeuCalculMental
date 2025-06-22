@@ -16,41 +16,46 @@
             android:id="@+id/textView_vie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:padding="8dp"
             android:text="@string/textView_vie"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:padding="8dp" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/textView_score"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="14dp"
+            android:layout_weight="1"
+            android:padding="8dp"
             android:text="@string/textView_score"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:padding="8dp" />
-
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/textView_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/textView_question" />
+            android:padding="8dp"
+            android:text="@string/textView_question"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/textView_reponse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/textView_reponse" />
+            android:padding="8dp"
+            android:text="@string/textView_reponse"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/textView_resultat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/textView_resultat" />
+            android:layout_weight="0.5"
+            android:padding="8dp"
+            android:text="@string/textView_resultat"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -170,7 +175,7 @@
 
                 <Button
                     android:id="@+id/button_0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/nombre_0" />
