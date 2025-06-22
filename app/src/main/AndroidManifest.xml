@@ -25,6 +25,9 @@
             android:name=".AProposActivity"
             android:exported="false" />
         <activity
+            android:name=".TableauDesScoresActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
