@@ -1,5 +1,6 @@
 package com.example.groupe_1_2025;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import java.util.Random;
 import android.os.Handler;
+import android.widget.Toast;
 
 public class CalculMentalActivity extends AppCompatActivity {
     private Button bouton0;
@@ -113,15 +115,22 @@ public class CalculMentalActivity extends AppCompatActivity {
             } else {
                 disableButtons();
                 textViewResultat.setText("❌ Vous avez perdu ! La bonne réponse était " + bonneReponse);
+
+                new Handler().postDelayed(this::enterName, 2000);
                 return;
             }
         }
 
-        textViewVie.setText("Vies restantes : " + vies);
+        textViewVie.setText("Lives : " + vies);
 
         if (vies > 0) {
             new Handler().postDelayed(this::genererNouvelleQuestion, 2000);
         }
+    }
+
+    private void enterName() {
+        Intent intent = new Intent(CalculMentalActivity.this, EnterNameActivity.class);
+        startActivityForResult(intent, 1);
     }
 
     private void disableButtons() {
@@ -152,6 +161,19 @@ public class CalculMentalActivity extends AppCompatActivity {
         bouton9.setEnabled(true);
         button_valider.setEnabled(true);
         button_effacer.setEnabled(true);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            String pseudo = data.getStringExtra("pseudo");
+
+            Toast.makeText(this, "Pseudo enregistré : " + pseudo, Toast.LENGTH_SHORT).show();
+
+            // Tu peux sauvegarder le pseudo dans une base de données, ou simplement afficher un message
+        }
     }
 
     private void genererNouvelleQuestion() {

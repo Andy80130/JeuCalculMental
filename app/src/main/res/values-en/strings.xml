@@ -10,4 +10,7 @@
     <string name="textView_resultat">Result :</string>
     <string name="bouton_effacer">Erase</string>
     <string name="bouton_valider">Submit</string>
+    <string name="textView_enter_name">Enter your nickname</string>
+    <string name="editText_pseudo">Your nickname</string>
+    <string name="bouton_valider_nom">Submit</string>
 </resources>

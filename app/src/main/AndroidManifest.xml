@@ -16,6 +16,9 @@
             android:name="CalculMentalActivity"
             android:exported="false" />
         <activity
+            android:name=".EnterNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".CalculatriceActivity"
             android:exported="false" />
         <activity

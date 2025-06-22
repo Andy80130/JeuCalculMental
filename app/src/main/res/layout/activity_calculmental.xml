@@ -16,7 +16,7 @@
             android:id="@+id/textView_vie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Vies restantes: 5"
+            android:text="@string/textView_vie"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             android:padding="8dp" />
@@ -25,7 +25,7 @@
             android:id="@+id/textView_score"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Score : 0"
+            android:text="@string/textView_score"
             android:textSize="18sp"
             android:textColor="@android:color/black"
             android:padding="8dp" />
