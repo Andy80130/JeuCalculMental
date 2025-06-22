@@ -16,9 +16,9 @@
     <string name="moins" translatable="false">-</string>
     <string name="multiplier" translatable="false">x</string>
     <string name="diviser" translatable="false">/</string>
-    <string name="bouton_reset">RAZ</string>
-    <string name="bouton_calculer">Calculer</string>
-    <string name="textView_vie" translatable="false">Lives :</string>
+    <string name="bouton_reset" translatable="true">RAZ</string>
+    <string name="bouton_calculer" translatable="true">Calculer</string>
+    <string name="textView_vie" translatable="true">Vies :</string>
     <string name="textView_score" translatable="false">Score :</string>
     <string name="textView_question" translatable="true">Calcul à résoudre :</string>
     <string name="textView_reponse" translatable="true">Votre réponse :</string>
