@@ -18,8 +18,8 @@
     <string name="diviser" translatable="false">/</string>
     <string name="bouton_reset" translatable="true">RAZ</string>
     <string name="bouton_calculer" translatable="true">Calculer</string>
-    <string name="textView_vie" translatable="true">Vies :</string>
-    <string name="textView_score" translatable="false">Score :</string>
+    <string name="textView_vie" translatable="true">Vies : 5</string>
+    <string name="textView_score" translatable="false">Score : 0</string>
     <string name="textView_question" translatable="true">Calcul à résoudre :</string>
     <string name="textView_reponse" translatable="true">Votre réponse :</string>
     <string name="textView_resultat" translatable="true">Résultat :</string>
