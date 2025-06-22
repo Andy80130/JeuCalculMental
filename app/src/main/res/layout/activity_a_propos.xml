@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_marginTop="52dp"
-            android:text="Projet Android Studio - Jeu de Calcul Mental\n\nApplication réalisée par :\n- HERBERT Andy\n- BEAUDIOT Baptiste"
+            android:text="Projet Android Studio - Jeu de Calcul Mental\n\nEn bonus: un tableau des scores afin de garder les précédents résultats\n\nApplication réalisée par :\n- HERBERT Andy\n- BEAUDIOT Baptiste"
             android:textSize="18sp" />
     </LinearLayout>
 
