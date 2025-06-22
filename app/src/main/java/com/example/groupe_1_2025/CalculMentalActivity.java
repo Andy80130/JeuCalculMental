@@ -25,6 +25,8 @@ public class CalculMentalActivity extends AppCompatActivity {
     private Button bouton9;
     private Button button_valider;
     private Button button_effacer;
+    private TextView textViewVie;
+    private TextView textViewScore;
     private TextView textViewQuestion;
     private TextView textViewReponse;
     private TextView textViewResultat;
@@ -33,6 +35,9 @@ public class CalculMentalActivity extends AppCompatActivity {
     private TypeOperation operation;
     private int bonneReponse;
     private StringBuilder reponseUtilisateur = new StringBuilder();
+    private int vies = 5;
+    private int score = 0;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,18 +49,20 @@ public class CalculMentalActivity extends AppCompatActivity {
             return insets;
         });
 
-        bouton0=findViewById(R.id.button_0);
+        bouton0 = findViewById(R.id.button_0);
         bouton1 = findViewById(R.id.button_1);
         bouton2 = findViewById(R.id.button_2);
-        bouton3= findViewById(R.id.button_3);
-        bouton4= findViewById(R.id.button_4);
+        bouton3 = findViewById(R.id.button_3);
+        bouton4 = findViewById(R.id.button_4);
         bouton5 = findViewById(R.id.button_5);
-        bouton6= findViewById(R.id.button_6);
+        bouton6 = findViewById(R.id.button_6);
         bouton7 = findViewById(R.id.button_7);
         bouton8 = findViewById(R.id.button_8);
-        bouton9=findViewById(R.id.button_9);
-        button_valider=findViewById(R.id.bouton_valider);
-        button_effacer=findViewById(R.id.bouton_effacer);
+        bouton9= findViewById(R.id.button_9);
+        button_valider = findViewById(R.id.bouton_valider);
+        button_effacer = findViewById(R.id.bouton_effacer);
+        textViewVie = findViewById(R.id.textView_vie);
+        textViewScore = findViewById(R.id.textView_score);
         textViewQuestion = findViewById(R.id.textView_question);
         textViewResultat = findViewById(R.id.textView_resultat);
         textViewReponse = findViewById(R.id.textView_reponse);
@@ -94,19 +101,64 @@ public class CalculMentalActivity extends AppCompatActivity {
 
         int reponse = Integer.parseInt(reponseUtilisateur.toString());
         if (reponse == bonneReponse) {
+            disableButtons();
             textViewResultat.setText("✅ Bonne réponse !");
+            score += 100;
+            textViewScore.setText("Score : " + score);
         } else {
-            textViewResultat.setText("❌ Mauvaise Réponse. La bonne réponse était " + bonneReponse);
+            vies--;
+            if (vies > 0) {
+                disableButtons();
+                textViewResultat.setText("❌ Mauvaise réponse. La bonne réponse était " + bonneReponse);
+            } else {
+                disableButtons();
+                textViewResultat.setText("❌ Vous avez perdu ! La bonne réponse était " + bonneReponse);
+                return;
+            }
         }
 
-        // Générer une nouvelle question après 2 secondes
-        new Handler().postDelayed(this::genererNouvelleQuestion, 2000);
+        textViewVie.setText("Vies restantes : " + vies);
+
+        if (vies > 0) {
+            new Handler().postDelayed(this::genererNouvelleQuestion, 2000);
+        }
+    }
+
+    private void disableButtons() {
+        bouton0.setEnabled(false);
+        bouton1.setEnabled(false);
+        bouton2.setEnabled(false);
+        bouton3.setEnabled(false);
+        bouton4.setEnabled(false);
+        bouton5.setEnabled(false);
+        bouton6.setEnabled(false);
+        bouton7.setEnabled(false);
+        bouton8.setEnabled(false);
+        bouton9.setEnabled(false);
+        button_valider.setEnabled(false);
+        button_effacer.setEnabled(false);
+    }
+
+    private void enableButtons() {
+        bouton0.setEnabled(true);
+        bouton1.setEnabled(true);
+        bouton2.setEnabled(true);
+        bouton3.setEnabled(true);
+        bouton4.setEnabled(true);
+        bouton5.setEnabled(true);
+        bouton6.setEnabled(true);
+        bouton7.setEnabled(true);
+        bouton8.setEnabled(true);
+        bouton9.setEnabled(true);
+        button_valider.setEnabled(true);
+        button_effacer.setEnabled(true);
     }
 
     private void genererNouvelleQuestion() {
         Random random = new Random();
         TypeOperation[] operations = TypeOperation.values();
         operation = operations[random.nextInt(operations.length)];
+        enableButtons();
 
         switch (operation) {
             case ADD:
@@ -130,7 +182,7 @@ public class CalculMentalActivity extends AppCompatActivity {
 
             case DIVIDE:
                 // Pour une division entière, on construit un bon résultat puis on calcule l'opération inverse
-                nombre2 = random.nextInt(9) + 1; // évite la division par 0
+                nombre2 = random.nextInt(9) + 2; // évite la division par 0
                 bonneReponse = random.nextInt(10); // résultat souhaité
                 nombre1 = nombre2 * bonneReponse;
                 break;
